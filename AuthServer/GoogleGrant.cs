@@ -37,8 +37,6 @@ namespace AuthServer
                 context.Result = new GrantValidationResult(TokenErrors.InvalidGrant, null);
                 return;
             }
-
-            // get user's identity
             HttpClient client = new HttpClient();
 
             var request = client.GetAsync("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + userToken).Result;
